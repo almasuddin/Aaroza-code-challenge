@@ -1,0 +1,18 @@
+{
+  "name": "aaroza-code-challenge",
+  "version": "1.0.0",
+  "description": "Some simple API tasks",
+  "main": "task1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "GET",
+    "API"
+  ],
+  "author": "Almas Uddin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
