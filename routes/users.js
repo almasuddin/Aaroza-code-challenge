@@ -2,6 +2,9 @@
 const router = require('express').Router();
 //Import database schema
 const User = require('../model/User');
+//Import module for hashing
+const bcrypt = require('bcrypt');
+
 
 router.post('/signup', async (req, res)=>{
     //Hash password
