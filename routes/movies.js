@@ -2,6 +2,27 @@
 const router = require('express').Router();
 const verify = require('./verifyToken');
 
+
+// Task 1 ==============================================
+//Create list of actors
+const actors = [
+    {name: 'Humayun Faridi',
+    birthday: 'May 29, 1952',
+    country: 'Bangladesh'},
+    {name: 'Zahid Hasan',
+    birthday: 'October 4, 1965',
+    country: 'Bangladesh'},
+    {name: 'Asaduzzaman Noor',
+    birthday: 'October 31, 1946',
+    country: 'Bangladesh'}
+];
+
+//Respond with ACTOR'S LIST when a GET request to "/api/actors" is made
+router.get('/actors', (req, res) => {
+    res.json(actors);
+});
+
+// Task 4 ==============================================
 //Create list of movies
 var movies = [
     {
@@ -26,7 +47,7 @@ var movies = [
 //Route for movies
 //verify function will check authentication
 //If have access, will show the movie otherwise will show "access denied"
-router.get('/', verify, (req, res) => {
+router.get('/movies', verify, (req, res) => {
     res.json(movies);
 })
 

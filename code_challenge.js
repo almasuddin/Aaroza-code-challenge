@@ -34,7 +34,7 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, ()=>{
 app.use(express.json());
 
 //Route Middleware for '/api/movies'
-app.use('/api/movies', moviesRoute);
+app.use('/api', moviesRoute);
 //Route Middleware for '/api/user'
 app.use('/api/user', usersRoute);
 

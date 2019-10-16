@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt');
 //Import json web token module
 const jwt = require('jsonwebtoken');
 
+// Task 2 ==============================================
 //Sign Up
 router.post('/signup', async (req, res)=>{
     // Check if user exist
@@ -34,7 +35,7 @@ router.post('/signup', async (req, res)=>{
     }
 });
 
-
+// Task 3 ==============================================
 //Login
 router.post('/login', async (req, res) => {
     //check if the username not exist
