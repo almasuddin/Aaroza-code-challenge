@@ -15,10 +15,10 @@ node code_challenge.js
 ```
 
 # Test the APIs
-Assume that host means `http://localhost:5000`. Test APIs using `Postman`
+Assume that `host` means `http://localhost:5000`. Test APIs using `Postman`
 
 ### API Task 1
-GET - `http://localhost:5000/api/actors`
+`GET` - `http://localhost:5000/api/actors`
 Output will be like:
 ```js
 [
@@ -41,7 +41,7 @@ Output will be like:
 ```
 
 ### API Task 2
-POST - `http://localhost:5000/api/user/signup`
+`POST` - `http://localhost:5000/api/user/signup`
 In the body use following codes:
 ```js
 {
@@ -68,7 +68,7 @@ user already exists
 ```
 
 ### API Task 3
-POST - `http://localhost:5000/api/user/login`
+`POST` - `http://localhost:5000/api/user/login`
 In the body use following codes:
 ```js
 {
@@ -79,11 +79,11 @@ In the body use following codes:
 Output will be like:
 ```js
 {
-  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFobWVkIEFsaSIsImlhdCI6MTU3MTE5NzM1MH0.g4L7UqbE1urL5fsacTchVgMpjapCj2qgM2NjAn8BtLk
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFobWVkIEFsaSIsImlhdCI6MTU3MTIxODcwMX0.Fbi9YfEMEZ0F-Ncdu4z68oxZ-0M967rhZCzBJQCZJgw"
 }
 ```
 ### API Task 4
-GET - `http://localhost:5000/api/movies`
+`GET` - `http://localhost:5000/api/movies`
 Add `auth-token` = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFobWVkIEFsaSIsImlhdCI6MTU3MTE5NzM1MH0.g4L7UqbE1urL5fsacTchVgMpjapCj2qgM2NjAn8BtLk` and run
 Output will be like:
 ```js
@@ -112,4 +112,5 @@ Again run without `auth-token` of invalid `auth-token`. Output will be like:
 Invalid token
 ```
 
-### Screenshots are added to `Screenshots` folder
+### Screenshots
+Screenshots are also added to `Screenshots` folder
