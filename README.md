@@ -111,3 +111,5 @@ Again run without `auth-token` of invalid `auth-token`. Output will be like:
 ```js
 Invalid token
 ```
+
+### Screenshots are added to `Screenshots` folder
