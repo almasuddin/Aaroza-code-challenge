@@ -1,91 +1,28 @@
 //Import module 'express'
 const express = require('express');
-
 //Import module JSON Web Token
 const jwt = require('jsonwebtoken');
+//Import module dotenv for environment variables
+const dotenv = require('dotenv');
+//.env file is configured in this file
+const moviesRoute = require('./routes/movies');
+dotenv.config();
+//Define port as 5000
+const PORT = 5000;
 
 //Create an object of express
 const app = express();
 
-//Define port as 5000
-const PORT = 5000;
-
-//Create list of movies
-var movies = [
-    {
-        title: 'Aynabaji',
-        year: '2016',
-        rating: '8.1',
-        actors: [
-            {
-            name: 'Chanchal Chowdhury',
-            birthday: '01 January, 1970',
-            country: 'Bangladesh'
-            },
-            {
-                name: 'Partha Barua',
-                birthday: '01 January, 1971',
-                country: 'Bangladesh'
-            }
-        ]
-    },
-    {
-        title: 'Debi',
-        year: '2018',
-        rating: '7.1',
-        actors: [
-            {
-            name: 'Chanchal Chowdhury',
-            birthday: '01 January, 1970',
-            country: 'Bangladesh'
-            },
-            {
-                name: 'Iresh Zaker',
-                birthday: '02 January, 1971',
-                country: 'Bangladesh'
-            }
-        ]
-    }
-];
-
-//Mock User
-const user = {
-    "username": "almas",
-    "password": "dhakalive"
-}
-
-//POST request to "/api/user/login" is made
-app.post('/api/user/login', (req, res) =>{
-    jwt.sign({'user': user}, 'secretKey', (err, token) => {
-        res.json({
-            'token':token
-        })
-    })
+//connect to DB
+mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, ()=>{
+  console.log("connected to database");
 });
 
-//GET request to "/api/movies" is made
-app.get('/api/movies', verifyToken, (req, res) => {  
-    //verify authentication code
-    jwt.verify(req.token, 'secretkey', (err, authData) => {
-        res.sendStatus(403);
-    });
-    
-  });
+//Middleware
+app.use(express.json());
 
-// Verify Token
-function verifyToken(req, res, next) {
-    // Get auth header value
-    const bearerHeader = req.headers['authorization'];
-    // Check if bearer is undefined
-    if(typeof bearerHeader !== 'undefined') {
-      // Split at the space
-      const bearer = bearerHeader.split(' ');
-      // Get token from array
-      const bearerToken = bearer[0];
-      req.token = bearerToken;
-      next();
-    }
-  }
+//Route Middleware for '/api/movies'
+app.use('/api/movies', moviesRoute);
 
 //App is running on port (5000)
 app.listen(PORT, ()=>{
